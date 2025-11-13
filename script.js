@@ -280,32 +280,67 @@
 
 
 
-//Ambil semua elemen video
-const videos = Array.from(document.querySelectorAll('[data-duration]'));
-console.log(videos);
+// //Ambil semua elemen video
+// const videos = Array.from(document.querySelectorAll('[data-duration]'));
+// console.log(videos);
 
-//pilih hanya yang  'JAVASCRIPT LANJUTAN'
-const jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
-//ambil durasi masing-masing video
-    .map(video => video.dataset.duration)
-//ubah durasi menjadi float, ubah menit menjadi detik
-    .map(waktu => {
-    //10:30 => [10, 30] split
-    const parts = waktu.split(':').map(part => parseFloat(part));
-    return (parts[0] * 60) + parts[1];
-});
+// //pilih hanya yang  'JAVASCRIPT LANJUTAN'
+// const jsLanjut = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN'))
+// //ambil durasi masing-masing video
+//     .map(video => video.dataset.duration)
+// //ubah durasi menjadi float, ubah menit menjadi detik
+//     .map(waktu => {
+//     //10:30 => [10, 30] split
+//     const parts = waktu.split(':').map(part => parseFloat(part));
+//     return (parts[0] * 60) + parts[1];
+// });
 
-//jumlahkan semua durasi detik (reduce)
-const totalDetik = jsLanjut.reduce((acc, cur) => acc + cur, 0);
-//ubah formatnya jadi jam menit detik
-const jam = Math.floor(totalDetik / 3600);
-const menit = Math.floor((totalDetik - (jam * 3600)) / 60);
-const detik = totalDetik - (jam * 3600) - (menit * 60);
-//simpan di DOM
-const total = document.querySelector('.total-durasi');
-total.textContent = `${jam} Jam, ${menit} Menit, ${detik} Detik`;
+// //jumlahkan semua durasi detik (reduce)
+// const totalDetik = jsLanjut.reduce((acc, cur) => acc + cur, 0);
+// //ubah formatnya jadi jam menit detik
+// const jam = Math.floor(totalDetik / 3600);
+// const menit = Math.floor((totalDetik - (jam * 3600)) / 60);
+// const detik = totalDetik - (jam * 3600) - (menit * 60);
+// //simpan di DOM
+// const total = document.querySelector('.total-durasi');
+// total.textContent = `${jam} Jam, ${menit} Menit, ${detik} Detik`;
 
-//jumlahkan jumlah video
-const jumlahVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length;
-const jumlahVideoElement = document.querySelector('.jumlah-video');
-jumlahVideoElement.textContent = jumlahVideo;
+// //jumlahkan jumlah video
+// const jumlahVideo = videos.filter(video => video.textContent.includes('JAVASCRIPT LANJUTAN')).length;
+// const jumlahVideoElement = document.querySelector('.jumlah-video');
+// jumlahVideoElement.textContent = jumlahVideo;
+
+
+
+
+
+
+
+// //Template Literal
+// const nama = 'Andi';
+// const umur = 20;
+// const pesan = `Halo, nama saya ${nama}, saya ${umur} tahun.`;
+// console.log(pesan);
+
+// const x = 10;
+// console.log(`${(x % 2 == 0) ? 'genap' : 'ganjil'}`);
+
+
+//Html Fragment
+const mhs = {
+    nama: 'Andi',
+    umur: 20,
+    jurusan: 'Informatika'
+};
+
+const el = `<div>
+    <h2>${mhs.nama}</h2>
+    <span class="umur">${mhs.umur}</span>
+    <span class="jurusan">${mhs.jurusan}</span>
+</div>`;
+console.log(el);
+
+document.body.innerHTML = el;
+
+
+
