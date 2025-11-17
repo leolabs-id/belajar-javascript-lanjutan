@@ -326,21 +326,118 @@
 // console.log(`${(x % 2 == 0) ? 'genap' : 'ganjil'}`);
 
 
-//Html Fragment
-const mhs = {
-    nama: 'Andi',
-    umur: 20,
-    jurusan: 'Informatika'
-};
-
-const el = `<div>
-    <h2>${mhs.nama}</h2>
-    <span class="umur">${mhs.umur}</span>
-    <span class="jurusan">${mhs.jurusan}</span>
-</div>`;
-console.log(el);
-
-document.body.innerHTML = el;
+//Html Fragment looping
+// const mhs = [{
+//     nama: 'Andi',
+//     email: 'andi@example.com'
+// }, {
+//         nama: 'Budi',
+//         email: 'budi@example.com'
+//     }, {
+//         nama: 'Cici',
+//         email: 'cici@example.com'
+//     }];
 
 
+// const el = `<div class="mhs">
+// ${mhs.map(m => `<ul>
+//     <li>${m.nama}</li>
+//     <li>${m.email}</li>
+// </ul>`).join('')}
+// </div>
+// `;
+
+// document.body.innerHTML = el;
+
+
+// //Ternary template literal
+// const lagu = {
+//     judul: 'Seperti Langit',
+//     penyanyi: 'Andi',
+//     feat: 'Budi'
+// }
+
+// const el = ` <div class="lagu">
+//     <ul>
+//         <li>${lagu.penyanyi}</li>
+//         <li>${lagu.judul} ${lagu.feat ? `feat ${lagu.feat}` : ''}</li>
+//     </ul>
+// </div>
+// `;
+
+// document.body.innerHTML = el;
+
+
+// //Html Nested 1
+// const mhs = {
+//     nama: 'Andi',
+//     semester: 3,
+//     mataKuliah: ['Pemrograman Web', 'Jaringan Komputer', 'Basis Data']  
+// }
+
+// const el = ` <div class="mhs">
+//     <ul>
+//         <li>${mhs.nama}</li>
+//         <li>${mhs.semester}</li>
+//         <li>${mhs.mataKuliah.map(mk => `<li>${mk}</li>`).join('')}</li>
+//     </ul>
+// </div>
+// `;
+
+// document.body.innerHTML = el;
+
+// //Html Nested 2
+// const mhs = {
+//     nama: 'Andi',
+//     semester: 3,
+//     mataKuliah: ['Pemrograman Web', 'Jaringan Komputer', 'Basis Data']  
+// }
+
+// function cetakMataKuliah(mataKuliah) {
+//     return `
+//     <ol>
+//         ${mataKuliah.map(mk => `<li>${mk}</li>`).join('')}
+//     </ol>
+//     `
+// }
+
+// const el = ` <div class="mhs">
+//     <h2>${mhs.nama}</h2>
+//     <span class="semester">Semester ${mhs.semester}</span>
+//     <h4>Mata Kuliah:</h4>
+//     <ul>
+//         ${cetakMataKuliah(mhs.mataKuliah)}
+//     </ul>
+// </div>
+// `;
+
+// document.body.innerHTML = el;
+
+
+// // Tagged Template
+// const nama = 'Andi';
+// const umur = 20;
+
+// function coba(strings, nama, umur){
+//     return umur;
+// }
+
+// const str = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
+// console.log(str);
+
+
+//Tagged Templates
+const nama = 'Andi';
+const umur = 20;
+
+function coba(strings, ...values){
+    let result = '';
+    strings.forEach((str, i) => {
+        result += str + (values[i] || '');
+    });
+    return result;
+}
+
+const test = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
+console.log(test);
 
