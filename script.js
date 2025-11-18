@@ -426,18 +426,256 @@
 // console.log(str);
 
 
-//Tagged Templates
-const nama = 'Andi';
-const umur = 20;
+// //Tagged Templates
+// const nama = 'Andi';
+// const umur = 20;
 
-function coba(strings, ...values){
-    let result = '';
-    strings.forEach((str, i) => {
-        result += str + (values[i] || '');
-    });
-    return result;
-}
+// function coba(strings, ...values){
+//     // let result = '';
+//     // strings.forEach((str, i) => {
+//     //     result += str + (values[i] || '');
+//     // });
+//     // return result;
 
-const test = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
-console.log(test);
+//     return strings.reduce((result, str, i) => result + str + (values[i] || ''), '');
+// }
 
+// const test = coba`Halo, nama saya ${nama}, saya ${umur} tahun.`;
+// console.log(test);
+
+// function kalkulasi(a, b) {
+//     return [
+//         a + b,
+//         a - b,
+//         a * b,
+//         a / b
+//     ]; 
+// }
+
+// const [tambah, kurang, kali, bagi] = kalkulasi(2, 3);
+// console.log(tambah);
+// console.log(kurang);
+// console.log(kali);
+// console.log(bagi);
+
+// function kalkulasi(a, b) {
+//     return {
+//         tambah: a + b,
+//         kurang: a - b,
+//         kali: a * b,
+//         bagi: a / b
+//     }
+// }
+// //tidak harus berurutan
+// const {tambah, kurang, kali, bagi} = kalkulasi(2, 3);
+// console.log(tambah);
+// console.log(kurang);
+// console.log(kali);
+// console.log(bagi);
+
+
+// //destructuring object
+// const mhs1 = {
+//     nama: 'Andi',
+//     umur: 20,
+//     email: 'andi@example.com'
+//     nilai: {
+//         tugas: 80,
+//         uts: 85,
+//         uas: 90
+//     }
+// }
+
+// function cetakMhs({nama, umur, email, nilai: {tugas, uts, uas}}) {
+//     return `Halo, nama saya ${nama}, saya ${umur} tahun, email saya ${email}. 
+//     Nilai uas saya adalah ${uas}.`;
+// }
+
+// console.log(cetakMhs(mhs1));
+
+
+// //for of
+// const mhs = ['andi', 'budi', 'cici'];
+// for (let m of mhs) {
+//     console.log(m);
+// }
+
+// //forEach
+// mhs.forEach((m, i) => console.log(m));
+
+// for( const m of mhs.entries()) {
+//     console.log(m);
+// }
+
+// //looping string
+// const nama = 'Andi';
+// for (let n of nama) {
+//     console.log(n);
+// }
+
+
+// function jumlahkanAngka() {
+//     let jumlah = 0;
+//     for (let angka of arguments) {
+//         jumlah += angka;
+//     }
+//     return jumlah;
+// }
+
+// console.log(jumlahkanAngka(1, 2, 3, 4, 5));
+
+
+// //for in
+// const mhs = {
+//     nama: 'Andi',
+//     umur: 20,
+//     email: 'andi@example.com'
+// }
+
+// for (m in mhs) {
+//     console.log(m);
+// }
+
+
+// // spread operator
+// // menggabungkan 2 array
+// const mhs = ['andi', 'budi', 'cici'];
+// const mhs2 = ['dodi', 'euis', 'febi'];
+// const semuaMhs = [...mhs, 'gaga', ...mhs2];
+// console.log(semuaMhs);
+
+
+// //menyalin array
+// const mhs3 = ['andi', 'budi', 'cici'];
+// const mhsCopy = [...mhs3];
+// console.log(mhsCopy);
+
+
+
+// //Rest Parameter
+// function myFunc(a, b, ...c) {
+//    return c;
+// }
+
+// console.log(myFunc(1, 2, 3, 4, 5));
+// //muncul 3, 4, 5
+
+
+// function myFunc()
+// {
+//     return [...arguments]; //arguments bukan array, tapi object
+// }
+// console.log(myFunc(1, 2, 3, 4, 5));
+// //hasilnya adalah array
+ 
+
+// //function kalkulasi
+// function jumlahkan(...angka) {
+//     // let jumlah = 0;
+//     // for (let a of angka) {
+//     //     jumlah += a;
+//     // }
+//     // return jumlah;
+//     return angka.reduce((total, a) => total + a, 0);
+// }
+// console.log(jumlahkan(1, 2, 3, 4, 5));
+
+
+// //aray destructuring
+// const mhs = ['andi', 'budi', 'cici', 'dodi', 'euis', 'febi'];
+// const [ketua, wakil, ...anggota] = mhs;
+// console.log(anggota);
+// //hasilnya adalah ['cici', 'dodi', 'euis', 'febi']
+
+// //object destructuring
+// const team = {
+//     pm: 'Andi',
+//     frontend1: 'Budi',
+//     frontend2: 'Cici',
+//     backend: 'Dodi'
+//     ux: 'Euis'
+//     devOps: 'Febi'
+// }
+// const {pm, ...team2} = team;
+// console.log(team2);
+// //hasilnya adalah {frontend1: 'Budi', frontend2: 'Cici', backend: 'Dodi', ux: 'Euis', devOps: 'Febi'}   
+
+
+// //filtering
+// function filterBy(type, ...values){
+//     return values.filter(value => typeof value === type);
+
+// }
+
+// console.log(filterBy('number', 1, 2, 'sandika', false, 10, true, 'dody'));
+
+
+// // Callback Function
+// // syncronous callback
+// function halo(nama){
+//     alert(`Halo, ${nama}`);
+// }
+
+// function tampilkanPesan(callback) {
+//     const nama = prompt('Siapa nama kamu?');
+//     callback(nama);
+// }
+
+// tampilkanPesan((nama) =>  alert(`Halo, ${nama}`));
+
+// const mhs = [
+//     {
+//         'nama': 'Andi',
+//         'umur': 20,
+//         'email': 'andi@example.com',
+//         'jurusan': 'Informatika',
+//         'idDosenWali': 1
+//     },
+//     {
+//         'nama': 'Budi',
+//         'umur': 21,
+//         'email': 'budi@example.com',
+//         'jurusan': 'Informatika',
+//         'idDosenWali': 2
+//     },
+//     {
+//         'nama': 'Cici',
+//         'umur': 22,
+//         'email': 'cici@example.com',
+//         'jurusan': 'Informatika',
+//         'idDosenWali': 3
+//     },
+//     {
+//         'nama': 'Dodi',
+//         'umur': 23,
+//         'email': 'dodi@example.com',
+//         'jurusan': 'Informatika',
+//         'idDosenWali': 4
+//     }
+// ];
+
+// //contoh penggunaan syncronous callback 
+// //terdapat masalah loading karena for loop yang berat
+// console.log('mulai');
+// mhs.forEach(m => {
+//     for (let i = 0; i < 10000000; i++) {
+//         let date = new Date();
+
+//     }
+//     console.log(m.nama);
+// });
+// console.log('selesai');
+
+
+
+
+// Asynchronous Callback
+console.log('mulai');
+$.ajax({
+    url: 'data/mahasiswa.json',
+    success: (mhs) => {
+        mhs.forEach(m => console.log(m.nama));
+    },
+    error: (err) => console.log(err)  
+});
+console.log('selesai');

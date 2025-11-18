@@ -1,0 +1,30 @@
+[
+    {
+        "nama": "Andi",
+        "umur": 20,
+        "email": "andi@example.com",
+        "jurusan": "Informatika",
+        "idDosenWali": 1
+    },
+    {
+        "nama": "Budi",
+        "umur": 21,
+        "email": "budi@example.com",
+        "jurusan": "Informatika",
+        "idDosenWali": 2
+    },
+    {
+        "nama": "Cici",
+        "umur": 22,
+        "email": "cici@example.com",
+        "jurusan": "Informatika",
+        "idDosenWali": 3
+    },
+    {
+        "nama": "Dodi",
+        "umur": 23,
+        "email": "dodi@example.com",
+        "jurusan": "Informatika",
+        "idDosenWali": 4
+    }
+]
